@@ -7,6 +7,7 @@ export const Home = () => {
     <div className="font-poppins font-bold">
       <Header></Header>
       <Navbar />
+      <div className="grid grid-cols-4 gap-6"></div>
     </div>
   );
 };
