@@ -1,5 +1,5 @@
 import React from "react";
 
 export const LeftSideNav = () => {
-  return <div>LeftSideNav</div>;
+  return <div>left side update</div>;
 };
