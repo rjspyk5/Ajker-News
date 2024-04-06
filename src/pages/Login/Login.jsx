@@ -1,35 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { SignIn } from "./SignIn";
 
 export const Login = () => {
+  const [oldUser, setoldUser] = useState(true);
   const handleFormClick = (e) => {
     e.preventDefault();
-    console.log("handleClick");
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email);
   };
   return (
     <div className="max-w-xl mx-auto">
-      <h1 className="text-center text-2xl text-bold">Registration Form</h1>
-      <form
-        className="*:w-full *:rounded-lg *:p-2  "
-        onSubmit={handleFormClick}
-      >
-        <input
-          placeholder="Enter Your Email"
-          className="mb-2 bg-gray-100"
-          type="email"
-        />
+      {oldUser ? <SignIn /> : "nothing"}
 
-        <input
-          className="bg-gray-100"
-          placeholder="Enter Your Password"
-          type="password"
-        />
-
-        <input
-          className="mt-2 btn btn-success text-white w-full"
-          type="submit"
-          value="Submit"
-        />
-      </form>
+      {oldUser ? (
+        <p>
+          You are new here?
+          <span
+            onClick={() => setoldUser(!oldUser)}
+            className="text-green-500 hover:cursor-pointer"
+          >
+            Sign Up now
+          </span>
+        </p>
+      ) : (
+        <p>
+          Already Have an account?{" "}
+          <span
+            onClick={() => setoldUser(!oldUser)}
+            className="text-green-500 hover:cursor-pointer"
+          >
+            Sign in
+          </span>
+        </p>
+      )}
     </div>
   );
 };
