@@ -6,7 +6,7 @@ export const ErrorPage = () => {
   return (
     <div
       id="error-page"
-      className=" h-screen flex flex-col justify-center items-center"
+      className=" h-screen flex flex-col justify-center items-center font-bold text-2xl"
     >
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
