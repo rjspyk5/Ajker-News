@@ -1,10 +1,17 @@
 import React from "react";
 
 export const Login = () => {
+  const handleFormClick = (e) => {
+    e.preventDefault();
+    console.log("handleClick");
+  };
   return (
     <div className="max-w-xl mx-auto">
       <h1 className="text-center text-2xl text-bold">Registration Form</h1>
-      <form className="*:w-full *:rounded-lg *:p-2  " action="">
+      <form
+        className="*:w-full *:rounded-lg *:p-2  "
+        onSubmit={handleFormClick}
+      >
         <input
           placeholder="Enter Your Email"
           className="mb-2 bg-gray-100"
