@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SignIn } from "./SignIn";
+import { SignUp } from "./SignUp";
 
 export const Login = () => {
   const [oldUser, setoldUser] = useState(true);
@@ -8,10 +9,15 @@ export const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email);
+    console.log(password);
   };
   return (
     <div className="max-w-xl mx-auto">
-      {oldUser ? <SignIn /> : "nothing"}
+      {oldUser ? (
+        <SignIn handleFormClick={handleFormClick} />
+      ) : (
+        <SignUp handleFormClick={handleFormClick} />
+      )}
 
       {oldUser ? (
         <p>
