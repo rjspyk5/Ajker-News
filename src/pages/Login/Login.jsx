@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
 
 export const Login = () => {
   const [oldUser, setoldUser] = useState(true);
+  const [loginError, setloginError] = useState("");
   const handleFormClick = (e) => {
     e.preventDefault();
+    setloginError("");
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email);
-    console.log(password);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((res) => setloginError("Successfully added user"))
+      .catch((err) => setloginError(err.message));
   };
+
   return (
     <div className="max-w-xl mx-auto">
       {oldUser ? (
@@ -18,7 +24,7 @@ export const Login = () => {
       ) : (
         <SignUp handleFormClick={handleFormClick} />
       )}
-
+      <p className="text-red-500">{loginError && loginError}</p>
       {oldUser ? (
         <p>
           You are new here?
