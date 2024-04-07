@@ -11,6 +11,7 @@ export const Login = () => {
 
   const handleFormClick = (e) => {
     e.preventDefault();
+
     setloginError("");
     const email = e.target.email.value;
     const password = e.target.password.value;

@@ -1,6 +1,16 @@
 import React from "react";
+import auth from "../../firebase/firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
-export const SignUp = ({ handleFormClick }) => {
+export const SignUp = () => {
+  const handleFormClick = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    signInWithEmailAndPassword(auth, email, password)
+      .then((res) => console.log(res))
+      .catch((er) => console.log(er));
+  };
   return (
     <div className="card shrink-0 w-full  shadow-2xl bg-base-100">
       <form className="card-body" onSubmit={handleFormClick}>
