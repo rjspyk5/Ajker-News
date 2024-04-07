@@ -6,12 +6,19 @@ import auth from "../../firebase/firebase.config";
 
 export const Login = () => {
   const [oldUser, setoldUser] = useState(true);
+
   const [loginError, setloginError] = useState("");
+
   const handleFormClick = (e) => {
     e.preventDefault();
     setloginError("");
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const accepted = e.target.terms.chekced;
+    if (!password.match(/[A-Z]/)) {
+      setloginError("password must have been one upper case");
+      return;
+    }
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => setloginError("Successfully added user"))
       .catch((err) => setloginError(err.message));
