@@ -3,6 +3,8 @@ import auth from "../../firebase/firebase.config";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
+  updateCurrentUser,
+  updateProfile,
 } from "firebase/auth";
 import { userContext } from "../../layout/Root";
 
@@ -41,7 +43,13 @@ export const SignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((res) => {
         setloginError(<p className="text-green-500">Success</p>);
-        console.log(res.user);
+
+        updateProfile(res.user, {
+          displayName: name,
+          phoneNumber: number,
+          photoURL: "https://example.com/jane-q-user/profile.jpg",
+        });
+
         sendEmailVerification(res.user)
           .then(() => {
             setcurrentUser(res.user);

@@ -1,22 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoMdEye, IoIosEyeOff } from "react-icons/io";
 import auth from "../../firebase/firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { userContext } from "../../layout/Root";
+import { useNavigate } from "react-router-dom";
 
-const handleShowPass = () => setshowPass(!showPass);
 export const SignIn = () => {
+  const { currentUser, setcurrentUser } = useContext(userContext);
   const [showPass, setshowPass] = useState(false);
+  const navigate = useNavigate();
   const handleFormClick = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    if (!password.match(/[A-Z]/)) {
-      return;
-    }
+
     signInWithEmailAndPassword(auth, email, password)
-      .then((res) => console.log(res))
+      .then((res) => setcurrentUser(res.user))
       .catch((er) => console.log(er));
   };
+
   return (
     <div>
       <h1 className="text-center text-2xl text-bold">Log In</h1>
@@ -50,7 +52,10 @@ export const SignIn = () => {
           )}
         </p>
         <label className="label">
-          <a href="#" className="label-text-alt link link-hover">
+          <a
+            onClick={() => navigate("/forget")}
+            className="label-text-alt link link-hover"
+          >
             Forgot password?
           </a>
         </label>

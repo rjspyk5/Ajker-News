@@ -5,6 +5,7 @@ import { About } from "../pages/About/About";
 import { Career } from "../pages/Career/Career";
 import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { Login } from "../pages/Login/Login";
+import { ForgetPass } from "../pages/Login/ForgetPass";
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,10 @@ export const routes = createBrowserRouter([
       {
         path: "*",
         element: <ErrorPage />,
+      },
+      {
+        path: "/forget",
+        element: <ForgetPass />,
       },
     ],
   },

@@ -35,8 +35,10 @@ export const Login = () => {
             </p>
           )}
         </div>
+      ) : currentUser.emailVerified ? (
+        "wellcome"
       ) : (
-        "avilable"
+        "email need to be verified"
       )}
     </>
   );
