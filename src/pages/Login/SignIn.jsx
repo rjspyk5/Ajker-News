@@ -4,14 +4,13 @@ import auth from "../../firebase/firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 const handleShowPass = () => setshowPass(!showPass);
-export const SignIn = ({ errorHandeler: { loginError, setloginError } }) => {
+export const SignIn = () => {
   const [showPass, setshowPass] = useState(false);
   const handleFormClick = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     if (!password.match(/[A-Z]/)) {
-      setloginError("password must have been one upper case");
       return;
     }
     signInWithEmailAndPassword(auth, email, password)
@@ -20,7 +19,7 @@ export const SignIn = ({ errorHandeler: { loginError, setloginError } }) => {
   };
   return (
     <div>
-      <h1 className="text-center text-2xl text-bold">Registration Form</h1>
+      <h1 className="text-center text-2xl text-bold">Log In</h1>
       <form
         className="*:w-full *:rounded-lg *:p-2  "
         onSubmit={handleFormClick}
@@ -50,6 +49,11 @@ export const SignIn = ({ errorHandeler: { loginError, setloginError } }) => {
             />
           )}
         </p>
+        <label className="label">
+          <a href="#" className="label-text-alt link link-hover">
+            Forgot password?
+          </a>
+        </label>
 
         <p>
           <input className="inline" type="checkbox" name="terms" id="terms" />
