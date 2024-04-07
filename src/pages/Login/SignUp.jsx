@@ -11,6 +11,7 @@ export const SignUp = () => {
       .then((res) => console.log(res))
       .catch((er) => console.log(er));
   };
+
   return (
     <div className="card shrink-0 w-full  shadow-2xl bg-base-100">
       <form className="card-body" onSubmit={handleFormClick}>
