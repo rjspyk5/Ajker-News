@@ -1,11 +1,23 @@
 import { useState } from "react";
 import { IoMdEye, IoIosEyeOff } from "react-icons/io";
+import auth from "../../firebase/firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const handleShowPass = () => setshowPass(!showPass);
-
-export const SignIn = ({ handleFormClick, handlePassToggle }) => {
+export const SignIn = ({ errorHandeler: { loginError, setloginError } }) => {
   const [showPass, setshowPass] = useState(false);
-
+  const handleFormClick = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    if (!password.match(/[A-Z]/)) {
+      setloginError("password must have been one upper case");
+      return;
+    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((res) => console.log(res))
+      .catch((er) => console.log(er));
+  };
   return (
     <div>
       <h1 className="text-center text-2xl text-bold">Registration Form</h1>
