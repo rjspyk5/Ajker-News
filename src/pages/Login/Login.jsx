@@ -1,37 +1,37 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
 import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { userContext } from "../../layout/Root";
 
 export const Login = () => {
+  const data = useContext(userContext);
+  console.log(data);
   const [oldUser, setoldUser] = useState(true);
-
   const [loginError, setloginError] = useState("");
-
   const handleFormClick = (e) => {
     e.preventDefault();
-
-    setloginError("");
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const accepted = e.target.terms.chekced;
+    signInWithEmailAndPassword(auth, email, password)
+      .then((res) => console.log(res))
+      .catch((er) => console.log(er));
     if (!password.match(/[A-Z]/)) {
       setloginError("password must have been one upper case");
       return;
     }
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((res) => setloginError("Successfully added user"))
-      .catch((err) => setloginError(err.message));
   };
 
   return (
     <div className="max-w-xl mx-auto">
+      {/* Component */}
       {oldUser ? (
         <SignIn handleFormClick={handleFormClick} />
       ) : (
         <SignUp handleFormClick={handleFormClick} />
       )}
+
       <p className="text-red-500">{loginError && loginError}</p>
       {oldUser ? (
         <p>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoMdEye, IoIosEyeOff } from "react-icons/io";
 
 const handleShowPass = () => setshowPass(!showPass);
