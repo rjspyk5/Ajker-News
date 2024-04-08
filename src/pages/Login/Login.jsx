@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { SignIn } from "./SignIn";
 import { SignUp } from "./SignUp";
-import { userContext } from "../../layout/Root";
+import { userContext } from "../../Providers/Authprovider";
 
 export const Login = () => {
   const { currentUser } = useContext(userContext);

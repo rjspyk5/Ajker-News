@@ -2,11 +2,13 @@ import { useContext, useState } from "react";
 import { IoMdEye, IoIosEyeOff } from "react-icons/io";
 import auth from "../../firebase/firebase.config";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { userContext } from "../../layout/Root";
+
 import { useNavigate } from "react-router-dom";
+import { userContext } from "../../Providers/Authprovider";
 
 export const SignIn = () => {
   const { currentUser, setcurrentUser } = useContext(userContext);
+
   const [showPass, setshowPass] = useState(false);
   const navigate = useNavigate();
   const handleFormClick = (e) => {

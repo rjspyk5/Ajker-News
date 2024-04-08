@@ -3,10 +3,9 @@ import auth from "../../firebase/firebase.config";
 import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
-  updateCurrentUser,
   updateProfile,
 } from "firebase/auth";
-import { userContext } from "../../layout/Root";
+import { userContext } from "../../Providers/Authprovider";
 
 export const SignUp = () => {
   const [loginError, setloginError] = useState("");
