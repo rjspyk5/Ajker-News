@@ -30,6 +30,14 @@ export const Navbar = () => {
           Career
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/orders"
+          className={({ isActive }) => (isActive ? "bg-slate-500" : " ")}
+        >
+          Orders
+        </NavLink>
+      </li>
     </>
   );
   return (
@@ -70,7 +78,7 @@ export const Navbar = () => {
               <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
             </div>
           </div>
-          {currentUser.length < 1 ? (
+          {!currentUser ? (
             <Link className="btn" to="/login">
               Login
             </Link>

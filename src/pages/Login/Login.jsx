@@ -9,7 +9,7 @@ export const Login = () => {
 
   return (
     <>
-      {currentUser.length < 1 ? (
+      {!currentUser ? (
         <div className="max-w-xl mx-auto">
           {oldUser ? <SignIn /> : <SignUp />}
 
@@ -35,7 +35,7 @@ export const Login = () => {
             </p>
           )}
         </div>
-      ) : currentUser.emailVerified ? (
+      ) : currentUser?.emailVerified ? (
         "wellcome"
       ) : (
         "email need to be verified"

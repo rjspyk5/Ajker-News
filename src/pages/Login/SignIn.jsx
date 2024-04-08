@@ -12,7 +12,9 @@ export const SignIn = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    signIn(email, password);
+    signIn(email, password)
+      .then((res) => setcurrentUser(res.user))
+      .catch((er) => console.log(er));
   };
 
   return (
