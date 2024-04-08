@@ -1,15 +1,10 @@
 import { useContext, useState } from "react";
-import auth from "../../firebase/firebase.config";
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  updateProfile,
-} from "firebase/auth";
+import { sendEmailVerification, updateProfile } from "firebase/auth";
 import { userContext } from "../../Providers/Authprovider";
 
 export const SignUp = () => {
   const [loginError, setloginError] = useState("");
-  const { currentUser, setcurrentUser } = useContext(userContext);
+  const { createUser, setcurrentUser } = useContext(userContext);
   const handleFormClick = (e) => {
     e.preventDefault();
     setloginError("");
@@ -39,7 +34,7 @@ export const SignUp = () => {
       setloginError(<p className="text-red-500">Password not matched</p>);
       return;
     }
-    createUserWithEmailAndPassword(auth, email, password)
+    createUser(email, password)
       .then((res) => {
         setloginError(<p className="text-green-500">Success</p>);
 

@@ -1,13 +1,10 @@
 import { useContext, useState } from "react";
 import { IoMdEye, IoIosEyeOff } from "react-icons/io";
-import auth from "../../firebase/firebase.config";
-import { signInWithEmailAndPassword } from "firebase/auth";
-
 import { useNavigate } from "react-router-dom";
 import { userContext } from "../../Providers/Authprovider";
 
 export const SignIn = () => {
-  const { currentUser, setcurrentUser } = useContext(userContext);
+  const { signIn, setcurrentUser } = useContext(userContext);
 
   const [showPass, setshowPass] = useState(false);
   const navigate = useNavigate();
@@ -15,8 +12,7 @@ export const SignIn = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-
-    signInWithEmailAndPassword(auth, email, password)
+    signIn(email, password)
       .then((res) => setcurrentUser(res.user))
       .catch((er) => console.log(er));
   };
