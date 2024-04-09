@@ -8,7 +8,7 @@ export const Home = () => {
       <div className="grid grid-cols-4 gap-6 *:border">
         <div></div>
         <div className="col-span-2"></div>
-        <div className="p-2">
+        <div className="p-2 ">
           <RightSideNav></RightSideNav>
         </div>
       </div>
