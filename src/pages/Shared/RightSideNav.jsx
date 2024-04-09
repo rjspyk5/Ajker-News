@@ -1,29 +1,29 @@
 import React from "react";
-import { FaGoogle } from "react-icons/fa";
+import { FaGoogle, FaInstagram, FaTwitter } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 export const RightSideNav = () => {
   return (
     <>
       <div className="space-y-3 mb-4">
-        <p>Login With</p>
-        <button className="btn flex">
+        <p className="font-semibold text-lg">Login With</p>
+        <button className="btn flex bg-transparent hover:text-blue-500 btn-outline">
           <FaGoogle /> Login With Google
         </button>
-        <button className="btn flex">
+        <button className="btn flex bg-transparent hover:text-blue-500 btn-outline">
           <FaGithub /> Login With Github
         </button>
       </div>
-      <div>
-        <p className="text-[#403F3F]">Find Us On</p>
-        <button className="btn flex">
-          <FaGoogle /> Facebook
+      <div className="font-normal">
+        <p className="text-[#403F3F] mb-4 font-semibold text-lg">Find Us On</p>
+        <button className="border w-full flex rounded-t-xl items-center text-lg p-4 space-x-3">
+          <FaTwitter className="mr-3" /> Twitter
         </button>
-        <button className="btn flex">
-          <FaGithub /> Twitter
+        <button className="border w-full flex items-center text-lg p-4 space-x-3">
+          <FaGoogle className="mr-3" /> Facebook
         </button>
-        <button className="btn flex">
-          <FaGithub /> Instagram
+        <button className="border rounded-b-xl w-full flex items-center text-lg p-4 space-x-3">
+          <FaInstagram className="mr-3" /> Instagram
         </button>
       </div>
     </>

@@ -8,9 +8,9 @@ export const PrivateRoute = ({ children }) => {
   if (loading) {
     return <h1>loading..........</h1>;
   }
-
   if (currentUser) {
     return children;
   }
+
   return <Navigate to="/login"></Navigate>;
 };
