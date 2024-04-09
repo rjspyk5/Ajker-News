@@ -1,9 +1,6 @@
-import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { userContext } from "../../Providers/Authprovider";
 
 export const Navbar = () => {
-  const { currentUser, signout } = useContext(userContext);
   const menu = (
     <>
       <li>
@@ -78,15 +75,10 @@ export const Navbar = () => {
               <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
             </div>
           </div>
-          {!currentUser ? (
-            <Link className="btn" to="/login">
-              Login
-            </Link>
-          ) : (
-            <Link className="btn" onClick={signout}>
-              Signout
-            </Link>
-          )}
+
+          <Link className="btn" to="/login">
+            Login
+          </Link>
         </div>
       </div>
     </div>
