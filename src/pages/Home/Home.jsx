@@ -7,7 +7,7 @@ export const Home = () => {
     <div className="font-poppins font-bold">
       <div className="grid grid-cols-4 gap-6 *:border">
         <div>
-          <LeftSideNav data={data} />
+          <LeftSideNav />
         </div>
         <div className="col-span-2"></div>
         <div className="p-2 ">
