@@ -7,6 +7,7 @@ import { Career } from "../pages/Career/Career";
 import { SignIn } from "../pages/Login/SignIn";
 import { SignUp } from "../pages/Login/SignUp";
 import { Error } from "../pages/Error/Error";
+import { NewsDetail } from "../pages/Home/NewsDetail";
 
 export const routes = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("categories.json"),
+        loader: () => fetch("/news.json"),
       },
       {
         path: "/about",
@@ -35,6 +36,10 @@ export const routes = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp />,
+      },
+      {
+        path: "/news/:id",
+        element: <NewsDetail />,
       },
     ],
   },
