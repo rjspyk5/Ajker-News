@@ -8,6 +8,7 @@ import { SignIn } from "../pages/Login/SignIn";
 import { SignUp } from "../pages/Login/SignUp";
 import { Error } from "../pages/Error/Error";
 import { NewsDetail } from "../pages/Home/NewsDetail";
+import { PrivateRoute } from "../layout/PrivateRoute";
 
 export const routes = createBrowserRouter([
   {
@@ -39,7 +40,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/news/:id",
-        element: <NewsDetail />,
+        element: (
+          <PrivateRoute>
+            <NewsDetail />
+          </PrivateRoute>
+        ),
       },
     ],
   },
