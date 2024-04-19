@@ -74,7 +74,7 @@ export const Navbar = () => {
         </div>
         <div className="navbar-end space-x-2">
           <div className="avatar">
-            <div className="w-10 rounded-full">
+            <div className="w-10 rounded-full animate__animated animate__bounce">
               <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
             </div>
           </div>
