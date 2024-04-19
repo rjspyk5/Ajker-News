@@ -27,7 +27,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/career",
-        element: <Career />,
+        element: (
+          <PrivateRoute>
+            <Career />
+          </PrivateRoute>
+        ),
       },
 
       {
