@@ -13,7 +13,7 @@ export const SignIn = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="hero ">
+    <div className="hero animate__fadeIn animate_animated animate__slow">
       <div className="hero-content flex-col ">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold text-center">Login now!</h1>
